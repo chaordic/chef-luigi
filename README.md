@@ -1,23 +1,15 @@
 luigi Cookbook
 ==============
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook installs and configures [luigi](https://github.com/spotify/luigi).
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
-
-e.g.
-#### packages
-- `toaster` - luigi needs toaster to brown your bagel.
+#### Cookbooks
+- `python` - luigi needs python cookbook to run.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
-
-e.g.
 #### luigi::default
 <table>
   <tr>
