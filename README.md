@@ -11,6 +11,8 @@ Requirements
 Attributes
 ----------
 #### luigi::default
+
+The main attributes are:
 <table>
   <tr>
     <th>Key</th>
@@ -19,12 +21,32 @@ Attributes
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['luigi']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['aws']['access_key_id']</tt></td>
+    <td>String</td>
+    <td>AWS Access key ID</td>
+    <td><tt>nil</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['aws']['secret_access_key']</tt></td>
+    <td>String</td>
+    <td>AWS Secret access key</td>
+    <td><tt>nil</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['dir']</tt></td>
+    <td>String</td>
+    <td>Directory for luigi configuration</td>
+    <td><tt>'/etc/luigi'</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigid']['dir']</tt></td>
+    <td>String</td>
+    <td>Directory for luigid</td>
+    <td><tt>'/mnt/luigid'</tt></td>
   </tr>
 </table>
+
+Please check [attributes/default.rb](attributes/default.rb)  for the entire list of attributes.
 
 Usage
 -----

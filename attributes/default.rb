@@ -1,7 +1,6 @@
 # AWS keys
-info = Chef::EncryptedDataBagItem.load('aws', 's3')
-default['aws']['access_key_id'] = info['keys']['access_key']
-default['aws']['secret_access_key'] = info['keys']['secret_key']
+default['aws']['access_key_id'] = nil
+default['aws']['secret_access_key'] = nil
 
 default['luigi']['user'] = 'luigi'
 default['luigi']['group'] = 'luigi'
