@@ -1,0 +1,10 @@
+[scheduler]
+record_task_history = True
+state_path = <%= @luigid_statefile %>
+
+[task_history]
+db_connection = sqlite:///<%= @luigi_sqlite %>
+
+[GlobalParameters]
+aws_access_key_id = <%= @aws_access_key_id %>
+aws_secret_access_key = <%= @aws_secret_access_key %>
