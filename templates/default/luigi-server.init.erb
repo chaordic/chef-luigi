@@ -1,5 +1,8 @@
 #! /bin/sh
 ### BEGIN INIT INFO
+#
+# Created by Chef
+#
 # Provides:          skeleton
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
@@ -10,20 +13,16 @@
 #                    placed in /etc/init.d.
 ### END INIT INFO
 
-# Author: Foo Bar <foobar@baz.org>
-#
-# Please remove the "Author" lines above and replace them
-# with your own name if you copy and modify this script.
-
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 DESC="Luigi central planner server"
 NAME=luigid
-DAEMON=/usr/bin/$NAME
-PIDFILE=/var/run/luigi/$NAME.pid
-DAEMON_ARGS="--background --pidfile $PIDFILE"
+DAEMON=/usr/local/bin/$NAME
+PIDFILE=<%= @luigid_pidfile %>
+LOGDIR=<%= @luigid_logdir %>
+DAEMON_ARGS="--background --pidfile $PIDFILE --logdir $LOGDIR"
 SCRIPTNAME=/etc/init.d/$NAME
 
 # Exit if the package is not installed
