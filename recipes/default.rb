@@ -33,6 +33,13 @@ directory node['luigid']['dir'] do
   action  :create
 end
 
+directory node['luigid']['dir']['log'] do
+  owner   node['luigid']['user']
+  group   node['luigid']['group']
+  mode    '0755'
+  action  :create
+end
+
 directory node['luigid']['dir']['db'] do
   owner   node['luigid']['user']
   group   node['luigid']['group']

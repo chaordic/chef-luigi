@@ -21,18 +21,6 @@ The main attributes are:
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['aws']['access_key_id']</tt></td>
-    <td>String</td>
-    <td>AWS Access key ID</td>
-    <td><tt>nil</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['aws']['secret_access_key']</tt></td>
-    <td>String</td>
-    <td>AWS Secret access key</td>
-    <td><tt>nil</tt></td>
-  </tr>
-  <tr>
     <td><tt>['luigi']['dir']</tt></td>
     <td>String</td>
     <td>Directory for luigi configuration</td>
@@ -43,6 +31,28 @@ The main attributes are:
     <td>String</td>
     <td>Directory for luigid</td>
     <td><tt>'/mnt/luigid'</tt></td>
+  </tr>
+</table>
+
+Optional attributes:
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><tt>['aws']['access_key_id']</tt></td>
+    <td>String</td>
+    <td>AWS Access key ID</td>
+    <td><tt>nil</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['aws']['secret_access_key']</tt></td>
+    <td>String</td>
+    <td>AWS Secret access key</td>
+    <td><tt>nil</tt></td>
   </tr>
 </table>
 
