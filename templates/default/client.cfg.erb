@@ -4,9 +4,3 @@ state_path = <%= @luigid_statefile %>
 
 [task_history]
 db_connection = sqlite:///<%= @luigi_sqlite %>
-
-<% if node['aws']['access_key_id'] and node['aws']['secret_access_key'] -%>
-[GlobalParameters]
-aws_access_key_id = <%= @aws_access_key_id %>
-aws_secret_access_key = <%= @aws_secret_access_key %>
-<% end -%>

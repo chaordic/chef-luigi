@@ -34,28 +34,6 @@ The main attributes are:
   </tr>
 </table>
 
-Optional attributes:
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['aws']['access_key_id']</tt></td>
-    <td>String</td>
-    <td>AWS Access key ID</td>
-    <td><tt>nil</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['aws']['secret_access_key']</tt></td>
-    <td>String</td>
-    <td>AWS Secret access key</td>
-    <td><tt>nil</tt></td>
-  </tr>
-</table>
-
 Please check [attributes/default.rb](attributes/default.rb)  for the entire list of attributes.
 
 Usage

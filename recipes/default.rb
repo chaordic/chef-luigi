@@ -19,8 +19,6 @@ template "#{node['luigi']['dir']}/client.cfg" do
   mode      '0755'
   action    :create
   variables({
-    :aws_access_key_id => node['aws']['s3-access-key'],
-    :aws_secret_access_key => node['aws']['s3-secret-key']
     :luigid_statefile => node['luigid']['file']['state']
     :luigi_sqlite => node['luigid']['sqlite']
   })

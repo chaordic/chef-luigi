@@ -1,7 +1,3 @@
-# AWS keys
-default['aws']['access_key_id'] = nil
-default['aws']['secret_access_key'] = nil
-
 default['luigi']['user'] = 'luigi'
 default['luigi']['group'] = 'luigi'
 default['luigi']['dir'] = '/etc/luigi'
