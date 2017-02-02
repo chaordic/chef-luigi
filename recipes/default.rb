@@ -30,6 +30,17 @@ directory node['luigi_server']['log_dir'] do
   action    :create
 end
 
+template '/etc/default/luigid' do
+  source    'client.cfg.erb'
+  owner     node['luigi']['user'] || 'root'
+  group     node['luigi']['group'] || 'root'
+  mode      '0755'
+  action    :create
+  variables({
+    :env => node['luigi']['env']
+  })
+end
+
 python_pip 'boto'
 python_pip 'python-daemon'
 python_pip 'SQLAlchemy'

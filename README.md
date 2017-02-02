@@ -34,6 +34,28 @@ The main attributes are:
   </tr>
 </table>
 
+All the [configuration of luigi](http://luigi.readthedocs.io/en/stable/configuration.html#scheduler-config) are written to `default['luigi']['config_dir']/client.cfg` file. The pattern is:
+```
+[mysection]
+option=hello
+intoption=123
+```
+
+and you can add them through chef as follows:
+
+```
+default['client_cfg']['mysection'] = {
+  'option' = 'hello',
+  'intoption' = 123
+}
+```
+
+In order to load ENV variables when running your service, you can add them as:
+```
+default['luigi']['env']['VARIABLE'] = 'value'
+```
+
+
 Please check [attributes/default.rb](attributes/default.rb)  for the entire list of attributes.
 
 Usage
