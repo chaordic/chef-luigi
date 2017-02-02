@@ -45,6 +45,11 @@ directory node['luigid']['dir']['db'] do
   action    :create
 end
 
+python_pip 'boto'
+python_pip 'python-daemon'
+python_pip 'SQLAlchemy'
+python_pip 'luigi'
+
 service "luigid" do
   supports :restart => true, :start => true, :stop => true, :reload => true
   action :nothing
@@ -57,14 +62,10 @@ template "etc/init.d/luigid" do
   mode      '0755'
   action    :create
   notifies  :enable, 'service[luigid]'
-  notifies  :start, 'service[luigid]'
+  notifies  :start, 'service[luigid]' if node['luigid']['auto_start']
   variables({
+    :client_cfg => node['client_cfg']
     :luigid_pidfile => node['luigid']['file']['pid']
     :luigid_logdir => node['luigid']['dir']['log']
   })
 end
-
-python_pip 'boto'
-python_pip 'python-daemon'
-python_pip 'SQLAlchemy'
-python_pip 'luigi'
