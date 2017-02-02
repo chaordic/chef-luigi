@@ -1,22 +1,16 @@
 default['luigi']['user'] = 'luigi'
 default['luigi']['group'] = 'luigi'
-default['luigi']['dir'] = '/etc/luigi'
+default['luigi']['config_dir'] = '/etc/luigi'
 
-default['luigid']['user'] = 'luigi'
-default['luigid']['group'] = 'luigi'
-default['luigid']['auto_start'] = True
-default['luigid']['dir'] = '/mnt/luigid'
-default['luigid']['dir']['db'] = '/mnt/luigid/db'
-default['luigid']['dir']['log'] = '/mnt/luigid/log'
-default['luigid']['file']['pid'] = '/mnt/luigid/luigid.pid'
-default['luigid']['file']['state'] = '/mnt/luigid/luigi-state.pickle'
-default['luigid']['sqlite'] = '/mnt/luigid/db/luigi-task-hist.db'
+default['luigi_server']['auto_start'] = true
+default['luigi_server']['log_dir'] = '/usr/local/var/log'
+default['luigi_server']['pid_file'] = '/usr/local/var/luigid.pid'
 
 default['client_cfg']['scheduler'] = {
-  'record_task_history' = True,
-  'state_path' = default['luigid']['file']['state']
+  'record_task_history' = True, # Python syntaxe
+  'state_path' = '/usr/local/var/luigi-state.pickle'
 }
 
 default['client_cfg']['task_history'] = {
-  'db_connection' = "sqlite:///#{default['luigid']['sqlite']}"
+  'db_connection' = 'sqlite:////usr/local/var/luigi-task-hist.db'
 }
