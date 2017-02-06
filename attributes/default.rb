@@ -10,7 +10,7 @@ default['luigi']['server']['pid_file'] = '/var/run/luigid.pid'
 
 
 default['luigi']['client_cfg'] = {
-  'scheduler' => { |variable|
+  'scheduler' => {
     'record_task_history' => true,
     'state_path' => '/usr/local/var/luigi-state.pickle'
   },

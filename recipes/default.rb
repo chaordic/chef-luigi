@@ -4,13 +4,13 @@
 #
 user node['luigi']['user'] do
   system  true
-  shell   "/bin/false"
-  only_if node['luigi']['setup_user']
+  shell   '/bin/false'
+  only_if { node['luigi']['setup_user'] }
 end
 
 group node['luigi']['group'] do
   system  true
-  only_if node['luigi']['setup_group']
+  only_if { node['luigi']['setup_group'] }
 end
 
 directory node['luigi']['config_dir'] do
@@ -20,22 +20,22 @@ directory node['luigi']['config_dir'] do
   action    :create
 end
 
-template "#{node['luigi']['config_dir'}/client.cfg" do
+template "#{node['luigi']['config_dir']}/client.cfg" do
   source    'client.cfg.erb'
   owner     node['luigi']['user']
   group     node['luigi']['group']
   mode      '0755'
-  recursive true
   action    :create
   variables({
-    :client_cfg => node['client_cfg']
+    :client_cfg => node['luigi']['client_cfg']
   })
 end
 
-directory node['luigi_server']['log_dir'] do
+directory node['luigi']['server']['log_dir'] do
   owner     node['luigi']['user']
   group     node['luigi']['group']
   mode      '0755'
+  recursive true
   action    :create
 end
 
@@ -71,7 +71,7 @@ template "etc/init.d/luigid" do
   notifies  :enable, 'service[luigid]'
   notifies  :start, 'service[luigid]' if node['luigi']['server']['auto_start']
   variables({
-    :luigid_pidfile => node['luigi']['server']['pid_file']
+    :luigid_pidfile => node['luigi']['server']['pid_file'],
     :luigid_logdir => node['luigi']['server']['log_dir']
   })
 end

@@ -3,7 +3,7 @@
 <% (@client_cfg || {}).each do |section, values| %>
 [<%= section %>]
 <% (values || {}).each do |property, value| %>
-<%= name %> = <%= value %>
+<%= property %> = <%= value %>
 <% end -%>
 
 <% end -%>
