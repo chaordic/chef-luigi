@@ -8,13 +8,16 @@ default['luigi']['server']['auto_start'] = true
 default['luigi']['server']['log_dir'] = '/var/log/luigi'
 default['luigi']['server']['pid_file'] = '/var/run/luigid.pid'
 
+default['luigi']['server']['create_dir'] = true
+default['luigi']['server']['dir'] = '/var/luigi'
+
 
 default['luigi']['client_cfg'] = {
   'scheduler' => {
     'record_task_history' => true,
-    'state_path' => '/usr/local/var/luigi-state.pickle'
+    'state_path' => '/var/luigi/luigi-state.pickle'
   },
   'task_history' => {
-    'db_connection' => 'sqlite:////usr/local/var/luigi-task-hist.db'
+    'db_connection' => 'sqlite:////var/luigi/luigi-task-hist.db'
   }
 }

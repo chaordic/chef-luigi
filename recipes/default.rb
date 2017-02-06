@@ -39,6 +39,14 @@ directory node['luigi']['server']['log_dir'] do
   action    :create
 end
 
+directory node['luigi']['server']['dir'] do
+  owner     node['luigi']['user']
+  group     node['luigi']['group']
+  mode      '0755'
+  action    :create
+  only_if { node['luigi']['server']['create_dir'] }
+end
+
 template '/etc/default/luigid' do
   source    'client.cfg.erb'
   owner     node['luigi']['user']
