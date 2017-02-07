@@ -21,16 +21,52 @@ The main attributes are:
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['luigi']['dir']</tt></td>
+    <td><tt>['luigi']['config_dir']</tt></td>
     <td>String</td>
     <td>Directory for luigi configuration</td>
     <td><tt>'/etc/luigi'</tt></td>
   </tr>
   <tr>
-    <td><tt>['luigid']['dir']</tt></td>
+    <td><tt>['luigi']['setup_user']</tt></td>
+    <td>Boolean</td>
+    <td>If true it will create a luigi Unix user</td>
+    <td><tt>true</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['user']</tt></td>
     <td>String</td>
-    <td>Directory for luigid</td>
-    <td><tt>'/mnt/luigid'</tt></td>
+    <td>Unix user name</td>
+    <td><tt>'luigi'</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['setup_group']</tt></td>
+    <td>Boolean</td>
+    <td>If true it will create a luigi Unix group</td>
+    <td><tt>true</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['group']</tt></td>
+    <td>String</td>
+    <td>Unix group name</td>
+    <td><tt>'luigi'</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['server']['auto_start']</tt></td>
+    <td>Boolean</td>
+    <td>If true the luigid service will auto start</td>
+    <td><tt>true</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['server']['log_dir']</tt></td>
+    <td>String</td>
+    <td>The luigid log directory</td>
+    <td><tt>'/var/log/luigi'</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['luigi']['server']['pid_file']</tt></td>
+    <td>String</td>
+    <td>The luigid pid file</td>
+    <td><tt>'/var/run/luigid.pid'</tt></td>
   </tr>
 </table>
 
@@ -57,6 +93,11 @@ In order to load ENV variables when running your service, you can add them as:
 default['luigi']['server']['env']['VARIABLE'] = 'value'
 ```
 
+In order to create a default luidid directory, you can add:
+```
+default['luigi']['server']['dir'] = '/var/luigi'
+```
+If present, it will create this directory and it's present by default.
 
 Please check [attributes/default.rb](attributes/default.rb)  for the entire list of attributes.
 
