@@ -8,7 +8,6 @@ default['luigi']['server']['auto_start'] = true
 default['luigi']['server']['log_dir'] = '/var/log/luigi'
 default['luigi']['server']['pid_file'] = '/var/run/luigid.pid'
 
-default['luigi']['server']['create_dir'] = true
 default['luigi']['server']['dir'] = '/var/luigi'
 
 

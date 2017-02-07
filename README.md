@@ -44,15 +44,17 @@ intoption=123
 and you can add them through chef as follows:
 
 ```
-default['client_cfg']['mysection'] = {
-  'option' = 'hello',
-  'intoption' = 123
+default['luigi']['client_cfg'] = {
+  mysection => {
+    'option' = 'hello',
+    'intoption' = 123
+  }
 }
 ```
 
 In order to load ENV variables when running your service, you can add them as:
 ```
-default['luigi']['env']['VARIABLE'] = 'value'
+default['luigi']['server']['env']['VARIABLE'] = 'value'
 ```
 
 

@@ -2,21 +2,23 @@
 # Cookbook Name:: luigi
 # Recipe:: default
 #
-user node['luigi']['user'] do
-  system  true
-  shell   '/bin/false'
-  only_if { node['luigi']['setup_user'] }
+group node['luigi']['group'] do
+  system    true
+  only_if   { node['luigi']['setup_group'] }
 end
 
-group node['luigi']['group'] do
-  system  true
-  only_if { node['luigi']['setup_group'] }
+user node['luigi']['user'] do
+  system    true
+  shell     '/bin/false'
+  gid       node['luigi']['group']
+  only_if   { node['luigi']['setup_user'] }
 end
 
 directory node['luigi']['config_dir'] do
   owner     node['luigi']['user']
   group     node['luigi']['group']
-  mode      '0755'
+  mode      '0644'
+  recursive true
   action    :create
 end
 
@@ -24,7 +26,7 @@ template "#{node['luigi']['config_dir']}/client.cfg" do
   source    'client.cfg.erb'
   owner     node['luigi']['user']
   group     node['luigi']['group']
-  mode      '0755'
+  mode      '0644'
   action    :create
   variables({
     :client_cfg => node['luigi']['client_cfg']
@@ -43,18 +45,19 @@ directory node['luigi']['server']['dir'] do
   owner     node['luigi']['user']
   group     node['luigi']['group']
   mode      '0755'
+  recursive true
   action    :create
   only_if { node['luigi']['server']['create_dir'] }
 end
 
 template '/etc/default/luigid' do
-  source    'client.cfg.erb'
+  source    'luigi-env.sh.erb'
   owner     node['luigi']['user']
   group     node['luigi']['group']
-  mode      '0755'
+  mode      '0644'
   action    :create
   variables({
-    :env => node['luigi']['env']
+    :env => node['luigi']['server']['env']
   })
 end
 
