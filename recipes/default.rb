@@ -17,7 +17,7 @@ end
 directory node['luigi']['config_dir'] do
   owner     node['luigi']['user']
   group     node['luigi']['group']
-  mode      '0644'
+  mode      '0755'
   recursive true
   action    :create
 end
