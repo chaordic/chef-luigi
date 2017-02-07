@@ -41,14 +41,16 @@ directory node['luigi']['server']['log_dir'] do
   action    :create
 end
 
-directory node['luigi']['server']['dir'] do
-  owner     node['luigi']['user']
-  group     node['luigi']['group']
-  mode      '0755'
-  recursive true
-  action    :create
-  only_if { node['luigi']['server']['create_dir'] }
+if node['luigi']['server']['dir']
+  directory node['luigi']['server']['dir'] do
+    owner     node['luigi']['user']
+    group     node['luigi']['group']
+    mode      '0755'
+    recursive true
+    action    :create
+  end
 end
+
 
 template '/etc/default/luigid' do
   source    'luigi-env.sh.erb'
