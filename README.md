@@ -99,7 +99,7 @@ In order to load ENV variables when running your service, you can add them as:
 default['luigi']['server']['env']['VARIABLE'] = 'value'
 ```
 
-In order to create a default luidid directory you can add:
+In order to create a default luigid directory you can add:
 ```
 default['luigi']['server']['dir'] = '/var/luigi'
 ```
