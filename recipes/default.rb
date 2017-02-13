@@ -69,13 +69,8 @@ python_pip 'boto'
 python_pip 'python-daemon'
 python_pip 'SQLAlchemy'
 
-if node['luigi']['version']
-  python_pip 'luigi' do
-    version node['luigi']['version']
-    :upgrade
-  end
-else
-    python_pip 'luigi'
+python_pip 'luigi' do
+  version node['luigi']['version']
 end
 
 service 'luigid' do

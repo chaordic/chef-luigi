@@ -21,6 +21,12 @@ The main attributes are:
     <th>Default</th>
   </tr>
   <tr>
+    <td><tt>['luigi']['version']</tt></td>
+    <td>String</td>
+    <td>luigi version to be installed</td>
+    <td><tt>'2.5.0'</tt></td>
+  </tr>
+  <tr>
     <td><tt>['luigi']['config_dir']</tt></td>
     <td>String</td>
     <td>Directory for luigi configuration</td>
@@ -98,12 +104,6 @@ In order to create a default luidid directory you can add:
 default['luigi']['server']['dir'] = '/var/luigi'
 ```
 If present, it will create this directory and it's present by default.
-
-In order to specify a luigi version you can add:
-```
-default['luigi']['version'] = '2.5.0'
-```
-If present, it will upgrade to the desired version otherwise it will install the latest version. Defaults to the latest version.
 
 Please check [attributes/default.rb](attributes/default.rb)  for the entire list of attributes.
 
