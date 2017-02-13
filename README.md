@@ -93,11 +93,17 @@ In order to load ENV variables when running your service, you can add them as:
 default['luigi']['server']['env']['VARIABLE'] = 'value'
 ```
 
-In order to create a default luidid directory, you can add:
+In order to create a default luidid directory you can add:
 ```
 default['luigi']['server']['dir'] = '/var/luigi'
 ```
 If present, it will create this directory and it's present by default.
+
+In order to specify a luigi version you can add:
+```
+default['luigi']['version'] = '2.5.0'
+```
+If present, it will upgrade to the desired version otherwise it will install the latest version. Defaults to the latest version.
 
 Please check [attributes/default.rb](attributes/default.rb)  for the entire list of attributes.
 
