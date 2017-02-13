@@ -68,7 +68,10 @@ include_recipe 'python'
 python_pip 'boto'
 python_pip 'python-daemon'
 python_pip 'SQLAlchemy'
-python_pip 'luigi'
+
+python_pip 'luigi' do
+  version node['luigi']['version']
+end
 
 service 'luigid' do
   supports :restart => true, :start => true, :stop => true, :reload => true

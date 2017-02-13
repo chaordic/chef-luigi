@@ -1,3 +1,5 @@
+default['luigi']['version'] = '2.5.0'
+
 default['luigi']['setup_user'] = true
 default['luigi']['setup_group'] = true
 default['luigi']['user'] = 'luigi'

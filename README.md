@@ -21,6 +21,12 @@ The main attributes are:
     <th>Default</th>
   </tr>
   <tr>
+    <td><tt>['luigi']['version']</tt></td>
+    <td>String</td>
+    <td>luigi version to be installed</td>
+    <td><tt>'2.5.0'</tt></td>
+  </tr>
+  <tr>
     <td><tt>['luigi']['config_dir']</tt></td>
     <td>String</td>
     <td>Directory for luigi configuration</td>
@@ -93,7 +99,7 @@ In order to load ENV variables when running your service, you can add them as:
 default['luigi']['server']['env']['VARIABLE'] = 'value'
 ```
 
-In order to create a default luidid directory, you can add:
+In order to create a default luigid directory you can add:
 ```
 default['luigi']['server']['dir'] = '/var/luigi'
 ```
