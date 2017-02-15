@@ -9,7 +9,7 @@ end
 
 user node['luigi']['user'] do
   system    true
-  shell     '/bin/false'
+  shell     node['luigi']['shell']
   gid       node['luigi']['group']
   only_if   { node['luigi']['setup_user'] }
 end
