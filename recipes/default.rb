@@ -2,16 +2,18 @@
 # Cookbook Name:: luigi
 # Recipe:: default
 #
-group node['luigi']['group'] do
-  system    true
-  only_if   { node['luigi']['setup_group'] }
+if node['luigi']['setup_group']
+  group node['luigi']['group'] do
+    system    true
+  end
 end
 
-user node['luigi']['user'] do
-  system    true
-  shell     '/bin/false'
-  gid       node['luigi']['group']
-  only_if   { node['luigi']['setup_user'] }
+if node['luigi']['setup_user']
+  user node['luigi']['user'] do
+    system    true
+    shell     '/bin/false'
+    gid       node['luigi']['group']
+  end
 end
 
 directory node['luigi']['config_dir'] do
