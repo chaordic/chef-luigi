@@ -24,14 +24,14 @@ directory node['luigi']['config_dir'] do
   action    :create
 end
 
-template "#{node['luigi']['config_dir']}/client.cfg" do
-  source    'client.cfg.erb'
+template "#{node['luigi']['config_dir']}/luigi.cfg" do
+  source    'luigi.cfg.erb'
   owner     node['luigi']['user']
   group     node['luigi']['group']
   mode      '0644'
   action    :create
   variables({
-    :client_cfg => node['luigi']['client_cfg']
+    :luigi_cfg => node['luigi']['luigi_cfg']
   })
 end
 

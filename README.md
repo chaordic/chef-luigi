@@ -76,7 +76,7 @@ The main attributes are:
   </tr>
 </table>
 
-All the [configuration of luigi](http://luigi.readthedocs.io/en/stable/configuration.html#scheduler-config) are written to `default['luigi']['config_dir']/client.cfg` file. The pattern is:
+All the [configuration of luigi](http://luigi.readthedocs.io/en/stable/configuration.html#scheduler-config) are written to `default['luigi']['config_dir']/luigi.cfg` file. The pattern is:
 ```
 [mysection]
 option=hello
@@ -86,7 +86,7 @@ intoption=123
 and you can add them through chef as follows:
 
 ```
-default['luigi']['client_cfg'] = {
+default['luigi']['luigi_cfg'] = {
   mysection => {
     'option' = 'hello',
     'intoption' = 123
