@@ -57,6 +57,12 @@ The main attributes are:
     <td><tt>'luigi'</tt></td>
   </tr>
   <tr>
+    <td><tt>['luigi']['shell']</tt></td>
+    <td>String</td>
+    <td>Unix user shell for luigi user</td>
+    <td><tt>'/bin/false'</tt></td>
+  </tr>
+  <tr>
     <td><tt>['luigi']['server']['auto_start']</tt></td>
     <td>Boolean</td>
     <td>If true the luigid service will auto start</td>
