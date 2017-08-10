@@ -11,7 +11,7 @@ end
 if node['luigi']['setup_user']
   user node['luigi']['user'] do
     system    true
-    shell     '/bin/false'
+    shell     node['luigi']['shell']
     gid       node['luigi']['group']
   end
 end

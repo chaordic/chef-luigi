@@ -4,6 +4,8 @@ default['luigi']['setup_user'] = true
 default['luigi']['setup_group'] = true
 default['luigi']['user'] = 'luigi'
 default['luigi']['group'] = 'luigi'
+default['luigi']['shell'] = '/bin/false'
+
 default['luigi']['config_dir'] = '/etc/luigi'
 
 default['luigi']['server']['auto_start'] = true
